@@ -48,8 +48,7 @@
                 <include name="*/*.xml" />
                 <include name="**/*.jar" />
             </fileset>
-            <lib dir="../workspace/WebContent/WEB-INF/lib">
-            </lib>
+            
             <classes dir="${build}" />
         </war>
     </target>
