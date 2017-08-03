@@ -59,4 +59,22 @@
     <delete dir="${build}"/>
     <delete dir="${dist}"/>
   </target>
+  	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+
+	<presetdef name="asadmin">
+		<java
+			jar="C:\Users\609353040\Downloads\SetUp\glassfish-4.1.1\glassfish4\glassfish\modules\admin-cli.jar"
+			fork="true" />
+	</presetdef>
+	<target name="deploy" depends="dist">
+		<asadmin failonerror="true">
+			<arg value="deploy" />
+			<arg value="--force=true" />
+			<arg value="${dist}/LoginApp.war" />
+		</asadmin>
+	</target>
 </project>
